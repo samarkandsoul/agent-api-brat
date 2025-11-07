@@ -23,11 +23,16 @@ async function checkGitHub() {
 }
 
 // -----------------------------
-// Render API Check (placeholder for now)
+// Render API Check (REAL)
 // -----------------------------
 async function checkRender() {
     try {
-        // TODO: Add Render API endpoint later
+        const response = await fetch("https://api.render.com/health");
+
+        if (!response.ok) {
+            throw new Error(`Render API status: ${response.status}`);
+        }
+
         return { service: "Render", status: "OK" };
     } catch (error) {
         return { service: "Render", status: "ERROR", error: error.message };
