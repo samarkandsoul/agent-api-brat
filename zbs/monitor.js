@@ -1,14 +1,14 @@
-// ZBS — Zahid Brat Sistemi Monitor Modulu
-// Bu modul hər 10 dəqiqədən bir sistemin "nəbzini" ölçəcək.
+// ZBS Monitor Module
+// This module sends a heartbeat every 10 minutes.
 
-// Mini heartbeat
+// Heartbeat function
 function heartbeat() {
     const now = new Date().toISOString();
-    console.log(`[ZBS] Heartbeat — Sistem işləyir (${now})`);
+    console.log(`[ZBS] Heartbeat - System alive (${now})`);
 }
 
-// 10 dəqiqəlik interval (600,000 ms)
+// 10 minute interval (600,000 ms)
 setInterval(heartbeat, 600000);
 
-// İlk işə düşəndə də bir dəfə işləsin:
+// Run once on startup
 heartbeat();
